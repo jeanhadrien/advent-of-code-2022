@@ -1,6 +1,6 @@
 <a href=/adventofcode2022 /> Back to list </a> </br>
 <style>
-    <?php include 'style.css'; ?>
+    <?php include '../style.css'; ?>
 </style>
 
 <?php
@@ -52,7 +52,7 @@ function getTotalScore($me, $other)
 
 // Part 1 : Calculate the total score when XYZ are the moves I play during the round.
 
-$lines = file("./input/day2-input.txt");
+$lines = file("../input/day2-input.txt");
 
 $total = 0;
 foreach ($lines as $line) {

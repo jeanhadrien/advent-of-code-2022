@@ -1,6 +1,6 @@
 <a href=/adventofcode2022 /> Back to list </a> </br>
 <style>
-    <?php include 'style.css'; ?>
+    <?php include '../style.css'; ?>
 </style>
 
 <?php
@@ -9,7 +9,7 @@
 
 $sum_current_elf_cal = 0;
 $elf_calories = [];
-$lines = file("./input/day1-calories.txt");
+$lines = file("../input/day1-calories.txt");
 
 foreach ($lines as $line) {
     // If empty line, save total for current elf and reset
