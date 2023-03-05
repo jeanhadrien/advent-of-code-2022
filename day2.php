@@ -1,4 +1,7 @@
-<a href=/adventofcode2022 /> Back to list </a> </br> --- </br></br>
+<a href=/adventofcode2022 /> Back to list </a> </br>
+<style>
+    <?php include 'style.css'; ?>
+</style>
 
 <?php
 
@@ -12,7 +15,7 @@ function isWin($me, $other)
     return false;
 }
 
-$draws = array("X" => "A","Y" => "B","Z" => "C");
+$draws = array("X" => "A", "Y" => "B", "Z" => "C");
 
 function isDraw($me, $other)
 {
@@ -83,11 +86,11 @@ function getMoveToPlay($goal, $other)
 {
     global $wins, $losses, $draws;
     if ($goal == "X") // want to lose
-        return array_search($other, $losses); 
+        return array_search($other, $losses);
     if ($goal == "Y") // want to draw
-        return array_search($other, $draws); 
+        return array_search($other, $draws);
     if ($goal == "Z") // want to win
-        return array_search($other, $wins); 
+        return array_search($other, $wins);
 }
 
 $total = 0;
