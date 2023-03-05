@@ -1,3 +1,5 @@
+<a href=/adventofcode2022/> Back to list </a> </br> --- </br></br>
+
 <?php
 
 // Day 1 
@@ -11,7 +13,7 @@ $lines = file("./input/day1-calories.txt");
 $arr_calories = [];
 
 foreach ($lines as $line) {
-    if ($line == "\n") {
+    if ($line == "\n" or $line == "\r") {
         $arr_calories[] = $sum_current_elf_cal;
         $sum_current_elf_cal = 0;
     }
@@ -21,17 +23,17 @@ foreach ($lines as $line) {
 
 rsort($arr_calories);
 
-echo("Elf calories in descending order : ". implode( ", ", $arr_calories));
+echo ("Elf calories in descending order : " . implode(", ", $arr_calories));
 
-echo("<br><br> Calories carried by the top elf : " . current($arr_calories));
+echo ("<br><br> Calories carried by the top elf : " . current($arr_calories));
 
 $top3sum = 0;
-for ($i = 1; $i<=3;$i++){
+for ($i = 1; $i <= 3; $i++) {
     $top3sum += current($arr_calories);
     next($arr_calories);
 }
 
-echo("<br><br> Calories carried by the top 3 elves : " . $top3sum );
+echo ("<br><br> Calories carried by the top 3 elves : " . $top3sum);
 
 
 ?>
