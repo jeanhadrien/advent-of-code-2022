@@ -9,6 +9,9 @@ include("helpers.php");
 
 $rucksacks = readLinesInInputFileAndCleanBasedOnRegex("../input/day3-rucksacks.txt", "/[^A-Za-z\d]/");
 $score = str_split(" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+
+// Part 1
+
 $sum = 0;
 
 foreach ($rucksacks as $r) {
@@ -38,6 +41,8 @@ foreach ($rucksacks as $r) {
         }
 
     }
+
+    // Calculate the score
     foreach ($duplicates as $i => $char) {
         $sum += array_search($char, $score);
     }
@@ -45,6 +50,33 @@ foreach ($rucksacks as $r) {
     #echo "<br>-------<br>";
 }
 
-echo "What is the sum of the priorities of those item types? Answer > " . $sum;
+echo "Sum of priorities of the duplicate items per rucksack : " . $sum;
+echo "<br><br>";
+
+// Part 2
+
+$group = [];
+$sum = 0;
+
+
+foreach ($rucksacks as $rucksack) {
+    $group[] = str_split($rucksack);
+
+    // For each group of 3 rucksacks / array of characters
+    if (count($group) == 3) {
+
+        // Get the unique common characters of the 3 arrays using array_intersect
+        $common_characters = array_unique(array_intersect($group[0], $group[1], $group[2]));
+        assert(count($common_characters) == 1);
+
+        // Keep track of the sum of priorities
+        $sum += array_search(current($common_characters), $score);
+
+        $group = [];
+    }
+}
+
+echo "Sum of priorities of the elf badges : " . $sum;
+
 
 ?>

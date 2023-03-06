@@ -11,7 +11,7 @@ $title = [
     3 => "rucksack reorganization"
 ];
 
-for ($i = 1; $i <= 30; $i++)
+for ($i = 1; $i <= 25; $i++)
 {
     echo "<a href=/adventofcode2022/src/day" . $i . ".php>day " . $i;
     if (array_key_exists($i, $title))

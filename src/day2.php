@@ -71,7 +71,7 @@ foreach ($lines as $line) {
     $total += $roundScore;
 }
 
-echo "Total score Part 1 : " . $total;
+echo "Total score when XYZ are the moves I play during the round : " . $total;
 echo "<br><br>";
 
 // Part 2 : Calculate the total score when XYZ are desired outcomes of the rounds.
@@ -111,6 +111,6 @@ foreach ($lines as $line) {
     $total += $roundScore;
 }
 
-echo "Total score Part 2 : " . $total;
+echo "Total score when XYZ are desired outcomes of the rounds : " . $total;
 
 ?>
