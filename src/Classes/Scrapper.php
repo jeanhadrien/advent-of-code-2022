@@ -14,10 +14,10 @@ class AdventOfCodeScrapper
         return new \Goutte\Client;
     }
 
-    public static function getTitles()
+    public static function getTitles($max = 25)
     {
         $titles = [];
-        for ($i = 1; $i <= 25; $i++) {
+        for ($i = 1; $i <= $max; $i++) {
             $crawler = self::getClient()->request('GET', 'https://adventofcode.com/2022/day/' . strval($i));
             $result = $crawler->evaluate('//html/body/main/article[1]/h2');
             foreach ($result as $t) {
@@ -52,7 +52,7 @@ class AdventOfCodeScrapper
         ];
         $request = new Request('GET', 'https://adventofcode.com/2022/day/'.$day.'/input', $headers);
         $res = $client->sendAsync($request)->wait();
-        return $res->getBody();
+        return (string) $res->getBody();
     }
 
 

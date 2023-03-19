@@ -2,9 +2,10 @@
 
 {% block body %}
     <h2>Choose a day!</h2>
-
+    <select name="days" id="days">
     {% for challenge in challenges %}
-        <h4>{{ challenge }}</h4>
+        <option value="{{challenge}}">{{challenge}}</option>
     {% endfor %}
-
+    </select>
+    {{debug}}
 {% endblock %}
