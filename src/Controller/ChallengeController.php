@@ -23,7 +23,6 @@ class ChallengeController extends AbstractController
                 $item->expiresAfter(3600);
                 return AdventOfCodeScrapper::getTitles();
             }),
-            'result' => AdventOfCodeScrapper::$job
         ]));
     }
 }
