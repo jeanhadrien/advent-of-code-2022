@@ -1,30 +1,32 @@
 <?php
 
-namespace App\Controller;
+namespace App\Classes;
 
-use App\Classes\AdventOfCodeScrapper;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Contracts\Cache\CacheInterface;
-use Symfony\Contracts\Cache\ItemInterface;
-use Twig\Environment;
 
 class Day
 {
     public array $results = [];
-    public function getInputFile(int $day, string $split_pattern = null, string $remove_pattern = null)
+    public function getInputFile(int $day, string $split_pattern = null, string $replace_pattern = null)
     {
         $content = AdventOfCodeScrapper::getInputFile($day);
         //echo json_encode($content);
-        if ($split_pattern) {
-            return preg_split($split_pattern, $content);
-        } else {
-            return preg_split("/\n/", $content);
+        if ($split_pattern)
+            $array = preg_split($split_pattern, $content);
+        else
+            $array = preg_split("/\n/", $content);
+
+        if ($replace_pattern) {
+            $array = array_map(function (string $string): string {
+                global $replace_pattern;
+                return preg_replace($replace_pattern, '', $string);
+            }, $array);
         }
+        return $array;
 
     }
+
+
 
     public function addResult(array $result)
     {

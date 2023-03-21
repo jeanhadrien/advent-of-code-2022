@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Classes\Days;
-
-use App\Controller\Day;
+use App\Classes\Day;
 
 
 class Day1 extends Day

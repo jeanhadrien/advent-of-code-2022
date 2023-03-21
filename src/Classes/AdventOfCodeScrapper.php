@@ -1,11 +1,10 @@
 <?php
+
 namespace App\Classes;
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 
-/**
- * Summary of AdventOfCodeScrapper
- */
 class AdventOfCodeScrapper
 {
     private static $titles, $client;
